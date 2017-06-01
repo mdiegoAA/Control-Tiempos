@@ -1,0 +1,40 @@
+﻿<div class="modal fade" id="roles-usuario-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Roles del Usuario</h4>
+            </div>
+            <div class="modal-body">
+                <form id="roles-usuario-form" name="roles-usuario-form" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="RolId">Rol</label>
+                        <div class="controls">
+                            <select class="form-control select2" data-bind="options: roles, optionsText: 'name', value: rolUsuario, optionsCaption: 'SELECCIONE UN ROL'" data-val="true" data-val-required="El rol es obligatorio" id="RolId" name="RolId"></select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="RolId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button type="button" class="btn btn-sm btn-primary" data-bind="click: agregarRolUsuario">Agregar [+]</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <h4>Roles</h4>
+                        <ul data-bind="foreach: rolesUsuario">
+                            <li>
+                                <span data-bind="text: name"> </span>
+                                <a href="#" data-bind="click: $parent.eliminarRolUsuario">Eliminar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardarRolesUsuario">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/#ROOT" title="Inicio" description="Inicio" roles="*">
+    <siteMapNode title="Home" url="~/Inicio/Index/#Root" roles="*">
+      <siteMapNode title="Inicio" url="~/Inicio/Index" roles="*" />
+    </siteMapNode>
+    <siteMapNode url="~/Administracion/#ROOT" title="Administración" roles="Administrador"  >
+      <siteMapNode title="Roles" url="~/Administracion/Roles/Index" roles="Administrador"/>
+      <siteMapNode title="Usuarios" url="~/Administracion/Usuarios/Index" roles="Administrador"/>
+      <siteMapNode title="Clientes" url="~/Administracion/Clientes/Index" roles="Administrador"/>
+      <siteMapNode title="Cargos" url="~/Administracion/Cargos/Index" roles="Administrador"/>
+      <siteMapNode title="Áreas" url="~/Administracion/Areas/Index" roles="Administrador"/>
+      <siteMapNode title="Servicios" url="~/Administracion/Servicios/Index" roles="Administrador"/>
+      <siteMapNode title="Actividades" url="~/Administracion/Actividades/Index" roles="Administrador"/>
+      <siteMapNode title="Proyectos" url="~/Administracion/Proyectos/Index" roles="Administrador"/>
+      <siteMapNode title="Calendarios" url="~/Administracion/Calendarios/Index" roles="Administrador"/>
+      <siteMapNode title="Grupo Usuarios" url="~/ReportesAmezquita/AgregarGrupoTrabajos.aspx" roles="Administrador"/>
+    </siteMapNode>
+    <siteMapNode title="Registro de Tiempos" url="~/Cargues/#ROOT" roles="Administrador,Director,Operativo,Recursos Humanos">
+      <siteMapNode title="Registrar Tiempos" url="~/Cargues/RegistrarTiempos" roles="Administrador,Director,Operativo,Recursos Humanos"/>
+      <siteMapNode title="Historial de Registro" url="~/Cargues/Historial" roles="Administrador,Director,Operativo,Recursos Humanos"/>
+      <siteMapNode title="Modificación registro de tiempos" url="~/Cargues/ModificarRegistrarTiempos" roles="Administrador,Director,Operativo,Recursos Humanos"/>
+      <siteMapNode title="Histórico Usuario" url="~/ReportesAmezquita/HistoricoUsuario.aspx" roles="Administrador,Director,Recursos Humanos,Operativo"/>
+    </siteMapNode>
+    <siteMapNode url="~/Aprobar/#ROOT" title="Aprobar" roles="Administrador,Director"  >
+      <siteMapNode title="Aprobar Registros de Tiempo" url="~/Cargues/Aprobar" roles="Administrador,Director"/>
+    </siteMapNode>
+    <siteMapNode url="~/Novedades/#ROOT" title="Novedades" roles="Administrador,Recursos Humanos">
+      <siteMapNode title="Registrar Novedades" url="~/Cargues/RegistrarNovedades" roles="Administrador,Recursos Humanos"/>
+    </siteMapNode>
+    <siteMapNode url="~/Reportes/#ROOT" title="Reportes" roles="Administrador,Director,Recursos Humanos">
+      
+    
+      <siteMapNode title="Horas Mensuales por Proyecto" url="~/ReportesAmezquita/ClientesServicios.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Reportes Proyecto" url="~/ReportesAmezquita/ReporteUsuariosDirector.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Grupo de trabajo" url="~/ReportesAmezquita/ReporteGrupoTrabajo.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Clientes Servicio" url="~/ReportesAmezquita/ReportesAmezquita.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Reporte Ejecutado" url="~/ReportesAmezquita/ReporteEjecuta.aspx" roles="Administrador"/>
+      <!--<siteMapNode title="Horas Anuales Por Gerente" url="~/Reportes/HorasAnualesGerentes.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Horas Anuales Por Cliente" url="~/Reportes/HorasAnualesClientes.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Horas Anuales Por Actividad" url="~/Reportes/HorasAnualesActividades.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Horas Anuales Por Área" url="~/Reportes/HorasAnualesAreas.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <siteMapNode title="Horas Anuales Por Operador" url="~/Reportes/HorasAnualesOperadores.aspx" roles="Administrador,Director,Recursos Humanos"/>-->
+    </siteMapNode>
+
+    <siteMapNode url="~/ReportesAmezquita/#ROOT" title="ReportesAmezquita" roles="Reportes">
+      <siteMapNode title="Horas Mensuales por Proyecto" url="~/ReportesAmezquita/ReporteGerencia.aspx" roles="Reportes"/>
+      <siteMapNode title="Horas No Cargables Mensuales por Proyecto" url="~/ReportesAmezquita/ReporteGerencia_NoCargables.aspx" roles="Reportes"/>
+    </siteMapNode>
+   
+    <!--<siteMapNode url="~/Usuarios#ROOT" title="Usuario" roles="Administrador,Director,Operativo,Recursos Humanos"  >
+      <siteMapNode title="Cerrar sesión" url="~/Usuarios/IniciarSesion" roles="Administrador,Director,Recursos Humanos"/>
+    </siteMapNode>-->
+  </siteMapNode>
+</siteMap>

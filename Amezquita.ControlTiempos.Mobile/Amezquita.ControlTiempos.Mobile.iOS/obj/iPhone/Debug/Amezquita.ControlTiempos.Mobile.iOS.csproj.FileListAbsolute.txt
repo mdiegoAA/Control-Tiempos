@@ -1,0 +1,5 @@
+D:\Proyectos\SCI\Amezquita Control de Tiempos\Amezquita.ControlTiempos.Mobile\Amezquita.ControlTiempos.Mobile.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+D:\Proyectos\SCI\Amezquita Control de Tiempos\Amezquita.ControlTiempos.Mobile\Amezquita.ControlTiempos.Mobile.iOS\obj\iPhone\Debug\optimized\
+D:\Proyectos\SCI\Amezquita Control de Tiempos\Amezquita.ControlTiempos.Mobile\Amezquita.ControlTiempos.Mobile.iOS\obj\iPhone\Debug\Amezquita.ControlTiempos.Mobile.iOS.csprojResolveAssemblyReference.cache
+D:\Proyectos\SCI\Amezquita Control de Tiempos\Amezquita.ControlTiempos.Mobile\Amezquita.ControlTiempos.Mobile.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+D:\Proyectos\SCI\Amezquita Control de Tiempos\Amezquita.ControlTiempos.Mobile\Amezquita.ControlTiempos.Mobile.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items

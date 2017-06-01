@@ -1,0 +1,107 @@
+﻿@model GuardarProyectoDTO
+
+<button class="btn btn-sm btn-primary" data-bind="click:crear">Crear</button>
+
+<div class="modal fade" id="proyecto-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Registrar Proyecto</h4>
+            </div>
+            <div class="modal-body">
+                <form id="proyecto-form" name="proyecto-form" class="form-horizontal">
+                    @Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.ClienteId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.ClienteId, new { @class = "form-control", data_bind = "options: clientes, optionsText: 'nombre', optionsValue: 'id', value: clienteId, optionsCaption: 'SELECCIONE UN CLIENTE', select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.ClienteId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Nombre, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", data_bind = "value: nombre" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Año, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Año, new { @class = "form-control", data_bind = "value: año" })
+                            @Html.ValidationMessageFor(m => m.Año, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.FechaInicio, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.FechaInicio, new { @class = "form-control", data_bind = "datetimepicker: fechaInicio, datetimepickerOptions: { locale: 'es', format: 'DD/MM/YYYY' }" })
+                            @Html.ValidationMessageFor(m => m.FechaInicio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.FechaFinal, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.FechaFinal, new { @class = "form-control", data_bind = "datetimepicker: fechaFinal, datetimepickerOptions: { locale: 'es', format: 'DD/MM/YYYY' }" })
+                            @Html.ValidationMessageFor(m => m.FechaFinal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.BolsaHoras, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.BolsaHoras, new { @class = "form-control", data_bind = "value: bolsaHoras", data_val_number = "La bolsa de horas debe ser un número decimal válido." })
+                            @Html.ValidationMessageFor(m => m.BolsaHoras, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.GerenteId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.GerenteId, new { @class = "form-control", data_bind = "options: usuarios, optionsText: 'nombre', optionsValue: 'id', value: gerenteId, optionsCaption: 'SELECCIONE UN GERENTE', select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.GerenteId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.DirectorId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.DirectorId, new { @class = "form-control", data_bind = "options: usuarios, optionsText: 'nombre', optionsValue: 'id', value: directorId, optionsCaption: 'SELECCIONE UN DIRECTOR', select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.DirectorId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.SupervisorId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.SupervisorId, new { @class = "form-control", data_bind = "options: usuarios, optionsText: 'nombre', optionsValue: 'id', value: supervisorId, optionsCaption: 'SELECCIONE UN SUPERVISOR', select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.SupervisorId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.AuditorId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.AuditorId, new { @class = "form-control", data_bind = "options: usuarios, optionsText: 'nombre', optionsValue: 'id', value: auditorId, optionsCaption: 'SELECCIONE UN AUDITOR', select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.AuditorId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.AlertasProyectoPorcentajeEjecutado, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.AlertasProyectoPorcentajeEjecutado, new { @class = "form-control", data_bind = "value: alertasProyectoPorcentajeEjecutado", data_val_number = "El porcentaje ejecutado debe ser un número decimal válido." })
+                            @Html.ValidationMessageFor(m => m.AlertasProyectoPorcentajeEjecutado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.AlertasProyectoDiasSinRegistrar, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.AlertasProyectoDiasSinRegistrar, new { @class = "form-control", data_bind = "value: alertasProyectoDiasSinRegistrar", data_val_number = "La cantidad de días sin registrar debe ser un número entero válido." })
+                            @Html.ValidationMessageFor(m => m.AlertasProyectoDiasSinRegistrar, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardar">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

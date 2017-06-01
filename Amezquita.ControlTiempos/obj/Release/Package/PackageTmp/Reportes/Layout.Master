@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Amezquita.ControlTiempos.Reportes.Layout" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/fuelux.css" rel="stylesheet" />
+    <link href="~/Content/blog.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="reportesForm" runat="server">
+        <div class="header-background-color">
+            <div class="blog-header">
+                <div class="container ">
+                    <div class="header-bg-image">
+                        <div class="row">
+                            <a href="http://www.amezquita.com.co">
+                                <img src="http://www.amezquita.com.co/wp-content/uploads/2015/03/Logo-en-Policrom--a-e1443198604156.png" alt="" />
+                            </a>
+                            <a class="second-logo" target="_blank" href="http://www.pkf.com/">
+                                <img src="http://www.amezquita.com.co/wp-content/uploads/2015/03/pkf-logo.jpg" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar special-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <asp:SiteMapDataSource ShowStartingNode="false" runat="server" ID="siteMapDataSource" SiteMapProvider="AmezquitaXmlSiteMapProvider" />
+                        <ul class="nav navbar-nav">
+                            <asp:Repeater runat="server" DataSourceID="siteMapDataSource">
+                                <ItemTemplate>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%#Eval("Title") %><span class="caret"></span></a>
+                                        <asp:SiteMapDataSource ShowStartingNode="false" ID="hijosSiteMapDataSource" StartFromCurrentNode="false" StartingNodeUrl='<%#Eval("Url") %>' runat="server" SiteMapProvider="AmezquitaXmlSiteMapProvider" />
+                                        <asp:Repeater runat="server" DataSourceID="hijosSiteMapDataSource">
+                                            <HeaderTemplate>
+                                                <ul class="dropdown-menu">
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li><a href="<%#ResolverUrl(Eval("Url")) %>"><%#Eval("Title") %></a></li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid">
+            <asp:ScriptManager ID="ScriptManager" runat="server">
+                <Scripts>
+                    <asp:ScriptReference Path="~/Scripts/jquery-2.2.3.js" />
+                    <asp:ScriptReference Path="~/Scripts/jquery-migrate-1.3.0.js" />
+                    <asp:ScriptReference Path="~/Scripts/bootstrap.js" />
+                    <asp:ScriptReference Path="~/Scripts/moment-with-locales.js" />
+                    <asp:ScriptReference Path="~/Scripts/bootstrap-datetimepicker.min.js" />
+                    <asp:ScriptReference Path="~/Scripts/bootbox.min.js" />
+                    <asp:ScriptReference Path="~/Scripts/select2.min.js" />
+                    <asp:ScriptReference Path="~/Scripts/i18n/es.js" />
+                </Scripts>
+            </asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="reportesBody" runat="server">
+            </asp:ContentPlaceHolder>
+            <script type="text/javascript">
+                function setControls() {
+                    $('.datetimepicker').datetimepicker({
+                        locale: 'es',
+                        format: 'DD/MM/YYYY'
+                    });
+                    $('.select2').select2({ language: "es" });
+                };
+                $(function () {
+                    setControls();
+                });
+                Sys.WebForms.PageRequestManager.getInstance().add_endRequest(setControls);
+            </script>
+        </div>
+    </form>
+</body>
+</html>

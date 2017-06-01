@@ -1,0 +1,41 @@
+﻿<div class="modal fade" id="grupo-proyecto-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Grupo de Trabajo del Proyecto</h4>
+            </div>
+            <div class="modal-body">
+                <form id="grupo-proyecto-form" name="grupo-proyecto-form" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="UsuarioId">Usuario</label>
+                        <div class="controls">
+                            <select class="form-control select2" data-bind="options: usuarios, optionsText: 'nombre', value: usuarioProyecto, optionsCaption: 'SELECCIONE UN USUARIO'" data-val="true" data-val-required="El usuario es obligatorio" id="UsuarioId" name="UsuarioId"></select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="UsuarioId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button type="button" class="btn btn-sm btn-primary" data-bind="click: agregarUsuarioGrupo">Agregar [+]</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="control-group">
+                        <h4>Grupo de Trabajo</h4>
+                        <ul data-bind="foreach: usuariosProyecto">
+                            <li>
+                                <span data-bind="text: nombre"> </span>
+                                <a href="#" data-bind="click: $parent.eliminarUsuarioGrupo">Eliminar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardarGrupoDeTrabajo">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Amezquita.ControlTiempos.Mobile;assembly=Amezquita.ControlTiempos.Mobile"
+             xmlns:infrastructure="clr-namespace:Amezquita.ControlTiempos.Mobile.Infrastructure;assembly=Amezquita.ControlTiempos.Mobile"
+             x:Class="Amezquita.ControlTiempos.Mobile.Features.Cargues.RegistrarTiempoPage"
+             Title="Registrar Tiempos"
+             Padding="10, 10, 10, 10">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout VerticalOptions="StartAndExpand">
+      <Label Text="Proyectos:"></Label>
+      <infrastructure:BindablePicker ItemsSource="{Binding Proyectos}" DataValueField="Id" DataTextField="Nombre" SelectedItem="{Binding Proyecto}" />
+      <Label Text="Servicios:"></Label>
+      <infrastructure:BindablePicker ItemsSource="{Binding Servicios}" DataValueField="Id" DataTextField="Nombre" SelectedItem="{Binding Servicio}" />
+      <Label Text="Actividades:"></Label>
+      <infrastructure:BindablePicker ItemsSource="{Binding Actividades}" DataValueField="Id" DataTextField="Nombre" SelectedItem="{Binding Actividad}" />
+      <Label Text="Fecha:"></Label>
+      <DatePicker Date="{Binding Fecha}"></DatePicker>
+      <Label Text="Hora Inicio:"></Label>
+      <TimePicker Time="{Binding HoraInicio}"></TimePicker>
+      <Label Text="Hora Fin:"></Label>
+      <TimePicker Time="{Binding HoraFin}"></TimePicker>
+      <Label Text="Observación:"></Label>
+      <Editor Text="{Binding Observacion}"></Editor>
+      <Button Text="Registrar Tiempo" Command="{Binding RegistrarTiempo}"></Button>
+    </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage >

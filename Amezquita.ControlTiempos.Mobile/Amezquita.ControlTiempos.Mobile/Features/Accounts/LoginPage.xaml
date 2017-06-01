@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infrastructure="clr-namespace:Amezquita.ControlTiempos.Mobile.Infrastructure;assembly=Amezquita.ControlTiempos.Mobile"
+             x:Class="Amezquita.ControlTiempos.Mobile.Features.Accounts.LoginPage"
+             Title="Iniciar Sesión"
+             Padding="10, 10, 10, 10">
+  <ScrollView>
+    <StackLayout VerticalOptions="StartAndExpand">
+      <Image Source="{infrastructure:ImageResource Amezquita.ControlTiempos.Mobile.Features.Accounts.Logo.png}" Aspect="AspectFill" />
+      <Label Text="Usuario" />
+      <Entry Placeholder="Usuario" Text="{Binding Usuario}" />
+      <Label Text="Contraseña" />
+      <Entry IsPassword="true" Text="{Binding Password}" />
+      <Button Text="Iniciar Sesión" Command="{Binding LoginCommand}"/>
+      <ActivityIndicator IsRunning="{Binding IsBusy}" ></ActivityIndicator>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

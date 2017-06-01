@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Root" controller="Inicio" action="Index">
+    <mvcSiteMapNode title="Home" controller="Inicio" action="Index" roles="*">
+      <mvcSiteMapNode title="Inicio" controller="Inicio" action="Index" roles="*" />
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Administración" area="Administracion" controller="Inicio" action="Index" roles="Administrador">
+      <mvcSiteMapNode title="Roles" area="Administracion" controller="Roles" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Usuarios" area="Administracion" controller="Usuarios" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Clientes" area="Administracion" controller="Clientes" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Cargos" area="Administracion" controller="Cargos" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Áreas" area="Administracion" controller="Areas" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Servicios" area="Administracion" controller="Servicios" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Actividades" area="Administracion" controller="Actividades" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Proyectos" area="Administracion" controller="Proyectos" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Calendarios" area="Administracion" controller="Calendarios" action="Index" roles="Administrador"/>
+      <mvcSiteMapNode title="Grupo Usuarios" url="~/ReportesAmezquita/AgregarGrupoTrabajos.aspx" roles="Administrador"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Registro de Tiempos" controller="Cargues" action="Index" roles="Administrador,Director,Operativo,Recursos Humanos">
+      <mvcSiteMapNode title="Registrar Tiempos" controller="Cargues" action="RegistrarTiempos" roles="Administrador,Director,Operativo,Recursos Humanos"/>
+      <mvcSiteMapNode title="Historial de Registro" controller="Cargues" action="Historial" roles="Administrador,Director,Operativo,Recursos Humanos"/>
+      <mvcSiteMapNode title="Modificación registro de tiempos" controller="Cargues" action="ModificarRegistrarTiempos" roles="Administrador,Director,Operativo,Recursos Humanos"/>
+    <mvcSiteMapNode title="Histórico Usuario" url="~/ReportesAmezquita/HistoricoUsuario.aspx" roles="Administrador,Director,Recursos Humanos,Operativo"/>      
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Aprobar" controller="Cargues" action="Index" roles="Administrador,Director">
+      <mvcSiteMapNode title="Aprobar Registros de Tiempo" controller="Cargues" action="Aprobar" roles="Administrador,Director"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Novedades" controller="Cargues" action="Index" roles="Administrador,Recursos Humanos">
+      <mvcSiteMapNode title="Registrar Novedades" controller="Cargues" action="RegistrarNovedades" roles="Administrador,Recursos Humanos"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Reportes" controller="Inicio" action="Index" roles="Administrador,Director,Recursos Humanos">
+      <mvcSiteMapNode title="Horas Mensuales por Proyecto" url="~/ReportesAmezquita/ClientesServicios.aspx" roles="Administrador,Director,Recursos Humanos"/> 
+      <mvcSiteMapNode title="Reportes Proyecto" url="~/ReportesAmezquita/ReporteUsuariosDirector.aspx" roles="Administrador,Director,Recursos Humanos"/>
+       <mvcSiteMapNode title="Grupo de trabajo" url="~/ReportesAmezquita/ReporteGrupoTrabajo.aspx" roles="Administrador,Director,Recursos Humanos"/>     
+      <mvcSiteMapNode title="Clientes Servicio" url="~/ReportesAmezquita/ReportesAmezquita.aspx" roles="Administrador,Director,Recursos Humanos"/>  
+        <mvcSiteMapNode title="Reporte Ejecutado" url="~/ReportesAmezquita/ReporteEjecuta.aspx" roles="Administrador"/>     
+      <!--<mvcSiteMapNode title="Horas Anuales Por Gerente" url="~/Reportes/HorasAnualesGerentes.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <mvcSiteMapNode title="Horas Anuales Por Cliente" url="~/Reportes/HorasAnualesClientes.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <mvcSiteMapNode title="Horas Anuales Por Actividad" url="~/Reportes/HorasAnualesActividades.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <mvcSiteMapNode title="Horas Anuales Por Área" url="~/Reportes/HorasAnualesAreas.aspx" roles="Administrador,Director,Recursos Humanos"/>
+      <mvcSiteMapNode title="Horas Anuales Por Operador" url="~/Reportes/HorasAnualesOperadores.aspx" roles="Administrador,Director,Recursos Humanos"/>-->
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="ReportesAmezquita" controller="Inicio" action="Index" roles="Reportes">
+      <mvcSiteMapNode title="Horas Cargables Mensuales por Proyecto" url="~/ReportesAmezquita/ReporteGerencia.aspx" roles="Reportes"/>
+       <mvcSiteMapNode title="Horas No Cargables Mensuales por Proyecto" url="~/ReportesAmezquita/ReporteGerencia_NoCargables.aspx" roles="Reportes"/>
+    </mvcSiteMapNode>
+   
+    
+    
+  </mvcSiteMapNode>
+</mvcSiteMap>

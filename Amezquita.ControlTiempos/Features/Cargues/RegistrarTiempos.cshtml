@@ -1,0 +1,68 @@
+﻿@using Amezquita.ControlTiempos.Features.Cargues
+@model RegistrarTiempos.Command
+@{ ViewBag.Title = "Registrar Tiempos"; }
+<form id="cargar-horas-form" name="cargar-horas-form" class="form-horizontal">
+    <div class="control-group">
+        @Html.LabelFor(m => m.ProyectoId, new { @class = "control-label" })
+        <div class="controls">
+            @Html.DropDownListForKnockoutJs(m => m.ProyectoId, new { @class = "form-control select2", data_bind = "options: proyectos, optionsText: 'nombre', optionsValue: 'id', value: proyectoId, optionsCaption: 'SELECCIONE', event: { change: proyectoSeleccionado }" })
+            @Html.ValidationMessageFor(m => m.ProyectoId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.ServicioId, new { @class = "control-label" })
+        <div class="controls">
+            @Html.DropDownListForKnockoutJs(m => m.ServicioId, new { @class = "form-control select2", data_bind = "options: servicios, optionsText: 'nombre', optionsValue: 'id', value: servicioId, optionsCaption: 'SELECCIONE'" })
+            @Html.ValidationMessageFor(m => m.ServicioId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.ActividadId, new { @class = "control-label" })
+        <div class="controls">
+            @Html.DropDownListForKnockoutJs(m => m.ActividadId, new { @class = "form-control select2", data_bind = "options: actividades, optionsText: 'nombre', optionsValue: 'id', value: actividadId, optionsCaption: 'SELECCIONE', event: { change: actividadSeleccionada }" })
+            @Html.ValidationMessageFor(m => m.ActividadId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @Html.LabelFor(m => m.Fecha, new { @class = "control-label" })
+    <div class="input-group date">
+        @Html.TextBoxFor(m => m.Fecha, new { @class = "form-control", data_bind = "datetimepicker: fecha, datetimepickerOptions: { locale: 'es', format: 'DD/MM/YYYY' }" })
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    @Html.LabelFor(m => m.HoraInicio, new { @class = "control-label" })
+    <div class="input-group date">
+        @Html.TextBoxFor(m => m.HoraInicio, new { @class = "form-control", data_bind = "datetimepicker: horaInicio, datetimepickerOptions: { locale: 'es', format: 'HH:mm' }" })
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    @Html.LabelFor(m => m.HoraFin, new { @class = "control-label" })
+    <div class="input-group date">
+        @Html.TextBoxFor(m => m.HoraFin, new { @class = "form-control", data_bind = "datetimepicker: horaFin, datetimepickerOptions: { locale: 'es', format: 'HH:mm' }" })
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.Observaciones, new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextAreaFor(m => m.Observaciones, 5, 1, new { @class = "form-control", data_bind = "value: observaciones" })
+            @Html.ValidationMessageFor(m => m.Observaciones, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+            <button class="btn btn-sm btn-success" data-bind="click: iniciarCronometro">Iniciar Cronómetro</button>
+            <button name="buttonCargue" id="buttonCargue" class="btn btn-sm btn-primary" data-bind="click: cargarHoras">Cargar Horas</button>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script>
+        var apiUrl = '@Url.Action("Index", "Cargues", new { Area = "" })';
+    </script>
+    <script src="~/Features/Cargues/RegistrarTiemposViewModel.js"></script>
+}

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infrastructure="clr-namespace:Amezquita.ControlTiempos.Mobile.Infrastructure;assembly=Amezquita.ControlTiempos.Mobile"
+             x:Class="Amezquita.ControlTiempos.Mobile.SplashPage">
+  <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    <Image Source="{infrastructure:ImageResource Amezquita.ControlTiempos.Mobile.Logo.png}" Aspect="AspectFill" />
+    <Label Text="Control de Tiempos"  TextColor="Black" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <Label Text="Iniciando.."  TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+    <ActivityIndicator x:Name="WaitActivityIndicatorSplash" IsRunning="True" ></ActivityIndicator>
+  </StackLayout>
+</ContentPage>

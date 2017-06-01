@@ -1,0 +1,172 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>prueba</title>
+    <script type="text/javascript" src="~/Features/Cargues/HistoricoUsuario.js"></script>
+    <script>
+         $(function () {
+             $("#datepicker").datepicker({
+
+                     dateFormat: 'MM yy',
+                     changeMonth: true,
+                     changeYear: true,
+                     showButtonPanel: true,
+
+                     onClose: function(dateText, inst) {
+                         var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                         var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                         $(this).val($.datepicker.formatDate('MM yy', new Date(year, month, 1)));
+                     }
+                 });
+
+                     $(".monthPicker").focus(function () {
+                         $(".ui-datepicker-calendar").hide();
+                         $("#ui-datepicker-div").position({
+                             my: "center top",
+                             at: "center bottom",
+                             of: $(this)
+                         });
+                     });
+             });
+
+
+         $(function () {
+             $("#datepicker2").datepicker({
+                 changeMonth: true,
+                 changeYear: true,
+                 changeDay: true,
+                 showButtonPanel: true,
+                 dateFormat: 'yy-mm-dd',
+                 onClose: function (dateText, inst) {
+                     var day = $("#ui-datepicker-div .ui-datepicker-day :selected").val();
+                     var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                     var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                     $('#startDate').datepicker({ defaultDate: -30 });
+                     $('#endDate').datepicker({ defaultDate: new Date() });
+                 }
+             });
+         });
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <div class="container">
+         
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Fecha Inicial</label>
+                        <input type="text" placeholder="Fecha Archivo" id="datepicker" class="monthPicker" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-2">
+                    <label style="color:white">Servicio</label>
+                    <button type="button" id="Consultar" class="btn btn-primary btn-xs form-control">Consultar</button>
+                </div>
+                <div class="col-md-2">
+                    <label style="color:white">Servicio</label>
+                    <button type="button" id="Exportar" class="btn btn-primary btn-xs form-control">Exportar</button>
+                </div>
+                <div class="col-md-2" style="display:none">
+                    <label style="color:white">Consultar</label>
+                    <button type="button" id="Reporte" class="btn btn-primary btn-xs form-control">Reporte</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="container" id="info">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div><p class="bg-primary" id='NameProyecto'></p></div>
+                </div>
+                <div class="col-md-4">
+                    <%-- <div><strong id='servicio'> </strong></div>--%>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+
+                <div class="row">
+                    <div class="">
+                        <div class="col-lg-12 container">
+                            <div class="panel panel-default">
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="dataTable_wrapper">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered table-hover" id="dataTables" style="font-size:small">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Nombre del Proyecto </td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>31</td>
+                                                        <td>Total</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="table"></tbody>
+
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="pp"></div>
+    
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@model GuardarCargoDTO
+
+<button class="btn btn-sm btn-primary" data-bind="click:crear">Crear</button>
+
+<div class="modal fade" id="cargo-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Registrar cargo</h4>
+            </div>
+            <div class="modal-body">
+                <form id="cargo-form" name="actividad-form" class="form-horizontal">
+                    @Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Codigo, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Codigo, new { @class = "form-control", data_bind = "value: codigo" })
+                            @Html.ValidationMessageFor(m => m.Codigo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Nombre, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", data_bind = "value: nombre" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Tarifa, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Tarifa, new { @class = "form-control", data_bind = "value: tarifa", data_val_number = "La tarifa debe ser un número decimal válido." })
+                            @Html.ValidationMessageFor(m => m.Tarifa, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardar">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿@model MenuHelperModel
+
+<ul class="nav navbar-nav">
+    @foreach (var node in Model.Nodes.Where(n=>!n.IsRootNode))
+    {
+        if (node.Children.Any())
+        {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@node.Title<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    @foreach (var child in node.Children)
+                    {
+                        <li><a href="@child.Url">@child.Title</a></li>
+                    }
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li><a href="@node.Url">@node.Title</a></li>
+        }
+    }
+</ul>

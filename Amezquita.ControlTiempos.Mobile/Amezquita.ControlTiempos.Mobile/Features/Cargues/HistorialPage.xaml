@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Amezquita.ControlTiempos.Mobile;assembly=Amezquita.ControlTiempos.Mobile"
+             xmlns:infrastructure="clr-namespace:Amezquita.ControlTiempos.Mobile.Infrastructure;assembly=Amezquita.ControlTiempos.Mobile"
+             x:Class="Amezquita.ControlTiempos.Mobile.Features.Cargues.HistorialPage"
+             Title="Historial"
+             Padding="10, 10, 10, 10">
+  <ContentPage.Content>
+      <StackLayout VerticalOptions="StartAndExpand">
+      <Grid BackgroundColor="#0075c1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <!--<ColumnDefinition Width="1.1*"/>-->
+      </Grid.ColumnDefinitions>
+      <Label Grid.Row="0" Grid.Column="0" Text="Proyecto"  TextColor="White"/>
+      <Label Grid.Row="0" Grid.Column="1" Text="Actividad" TextColor="White"/>
+      <Label Grid.Row="0" Grid.Column="2" Text="Servicio" TextColor="White"/>
+      <Label Grid.Row="0" Grid.Column="3" Text="Fecha Inicio" TextColor="White"/>
+      <Label Grid.Row="0" Grid.Column="4" Text="Fecha Fin" TextColor="White"/>
+      <!--<Label Grid.Row="0" Grid.Column="5" Text="Aprobada" TextColor="White"/>-->
+    </Grid>
+
+      <ListView ItemsSource="{Binding Historial}" HorizontalOptions="Center">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                  <!--<ColumnDefinition Width="*"/>-->
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="{Binding ProyectoNombre}" Font="Small"  TextColor="Gray" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding ActividadNombre}" Font="Small"  TextColor="Gray" />
+                <Label Grid.Row="0" Grid.Column="2" Text="{Binding ServicioNombre}" Font="Small"  TextColor="Gray" />
+                <Label Grid.Row="0" Grid.Column="3" Text="{Binding FechaInicio}" Font="Small"  TextColor="Gray" />
+                <Label Grid.Row="0" Grid.Column="4" Text="{Binding FechaFin}" Font="Small"  TextColor="Gray" />
+                <!--<Label Grid.Row="0" Grid.Column="5" Text="{Binding Aprobada}" Font="Small"  TextColor="Gray" />-->
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

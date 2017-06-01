@@ -1,0 +1,41 @@
+﻿<div class="modal fade" id="servicios-proyecto-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Servicios del Proyecto</h4>
+            </div>
+            <div class="modal-body">
+                <form id="servicios-proyecto-form" name="servicios-proyecto-form" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="ServicioId">Servicio</label>
+                        <div class="controls">
+                            <select class="form-control select2" data-bind="options: servicios, optionsText: 'nombre', value: servicioProyecto, optionsCaption: 'SELECCIONE UN SERVICIO'" data-val="true" data-val-required="El servicio es obligatorio" id="ServicioId" name="ServicioId"></select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="ServicioId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button type="button" class="btn btn-sm btn-primary" data-bind="click: agregarServicioProyecto">Agregar [+]</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="control-group">
+                        <h4>Servicios</h4>
+                        <ul data-bind="foreach: serviciosProyecto">
+                            <li>
+                                <span data-bind="text: nombre"> </span>
+                                <a href="#" data-bind="click: $parent.eliminarServicioProyecto">Eliminar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardarServiciosProyecto">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

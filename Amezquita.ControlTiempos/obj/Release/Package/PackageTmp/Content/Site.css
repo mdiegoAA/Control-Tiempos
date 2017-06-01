@@ -1,0 +1,97 @@
+﻿html
+{
+    overflow-y: scroll;
+}
+
+.header-bg-image
+{
+    background-image: url('http://www.amezquita.com.co/wp-content/uploads/2015/03/pfk-amezquita1.jpg');
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+.header-background-color
+{
+    background: url(data:image/svg+xml;base64,) repeat-x bottom left;
+}
+
+.body-content
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.TAL
+{
+    text-align: left !important;
+}
+
+.TAR
+{
+    text-align: right !important;
+}
+
+.TAC
+{
+    text-align: center !important;
+}
+
+.FL
+{
+    float: left;
+}
+
+.FR
+{
+    float: right;
+}
+
+.NM
+{
+    margin: 0px;
+}
+
+.NMT
+{
+    margin-top: 0px;
+}
+
+.NMB
+{
+    margin-bottom: 0px;
+}
+
+.NMR
+{
+    margin-right: 0px;
+}
+
+.NML
+{
+    margin-left: 0px;
+}
+
+.NP
+{
+    padding: 0px;
+}
+
+.NPT
+{
+    padding-top: 0px;
+}
+
+.NPB
+{
+    padding-bottom: 0px;
+}
+
+.NPR
+{
+    padding-right: 0px;
+}
+
+.NPL
+{
+    padding-left: 0px;
+}

@@ -1,0 +1,151 @@
+﻿
+@using Amezquita.ControlTiempos.Features.Cargues
+@model ModificarRegistrarTiempos.Command
+@{ ViewBag.Title = "Registro de tiempos"; }
+
+<div class="repeater" id="historial-repeater">
+    <div class="repeater-header">
+        <div class="repeater-header-left">
+            <div class="repeater-search">
+                <div class="search input-group">
+                    <input type="search" class="form-control" data-bind="datetimepicker: fechaInicio, datetimepickerOptions: { locale: 'es', format: 'DD/MM/YYYY' }" placeholder="Fecha inicio"/>
+                    <input type="search" class="form-control" data-bind="datetimepicker: fechaFin, datetimepickerOptions: { locale: 'es', format: 'DD/MM/YYYY' }" placeholder="Fecha fin"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" data-bind="click: limpiarFechas">
+                            <span id="search" class="glyphicon glyphicon-search"></span>
+                            <span class="sr-only">Buscar</span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="repeater-viewport">
+        <div class="repeater-canvas"></div>
+        <div class="loader repeater-loader"></div>
+    </div>
+    <div class="repeater-footer">
+        <div class="repeater-footer-left">
+            <div class="repeater-itemization">
+                <div class="btn-group selectlist" data-resize="auto">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="selected-label">&nbsp;</span>
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li data-value="5"><a href="#">5</a></li>
+                        <li data-value="10"><a href="#">10</a></li>
+                        <li data-value="20"><a href="#">20</a></li>
+                        <li data-value="25" data-selected="true"><a href="#">25</a></li>
+                        <li data-value="50"><a href="#">50</a></li>
+                        <li data-value="100"><a href="#">100</a></li>
+                    </ul>
+                    <input class="hidden hidden-field" name="itemsPerPage" readonly="readonly" aria-hidden="true" type="text"/>
+                </div>
+                <span>Por P&aacute;gina</span>
+            </div>
+        </div>
+        <div class="repeater-footer-right">
+            <div class="repeater-pagination">
+                <button type="button" class="btn btn-default btn-sm repeater-prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Página Anterior</span>
+                </button>
+                <label class="page-label" id="pagina-label">P&aacute;gina</label>
+                <div class="repeater-primaryPaging active">
+                    <div class="input-group input-append dropdown combobox">
+                        <input type="text" class="form-control" aria-labelledby="pagina-label">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right"></ul>
+                        </div>
+                    </div>
+                </div>
+                <input type="text" class="form-control repeater-secondaryPaging" aria-labelledby="pagina-label">
+                <span>de <span class="repeater-pages"></span></span>
+                <button type="button" class="btn btn-default btn-sm repeater-next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Siguiente P&aacute;gina</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modificarRegistrarTiempo-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Editar registro de tiempos</h4>
+            </div>
+            <div class="modal-body">
+                <form id="modificarRegistrarTiempo-form" name="modificarRegistrarTiempo-form" class="form-horizontal">
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.ProyectoId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.ProyectoId, new { @class = "form-control select2", data_bind = "options: proyectos, optionsText: 'nombre', optionsValue: 'id', value: proyectoId, optionsCaption: 'SELECCIONE', event: { change: proyectoSeleccionado }, select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.ProyectoId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.ServicioId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.ServicioId, new { @class = "form-control select2", data_bind = "options: servicios, optionsText: 'nombre', optionsValue: 'id', value: servicioId, optionsCaption: 'SELECCIONE', select2: {  language: 'es', width: '100%' }, selectedOptions: servicioSeleccionado" })
+                            @Html.ValidationMessageFor(m => m.ServicioId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.ActividadId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.ActividadId, new { @class = "form-control select2", data_bind = "options: actividades, optionsText: 'nombre', optionsValue: 'id', value: actividadId, optionsCaption: 'SELECCIONE', select2: {  language: 'es', width: '100%' }, selectedOptions: actividadSeleccionado" })
+                            @Html.ValidationMessageFor(m => m.ActividadId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.LabelFor(m => m.Fecha, new { @class = "control-label" })
+                    <div class="input-group date">
+                        @Html.TextBoxFor(m => m.Fecha, new { @class = "form-control", data_bind = "datetimepicker: fecha, datetimepickerOptions: { locale: 'es', format: 'DD/MM/YYYY' }" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.LabelFor(m => m.HoraInicio, new { @class = "control-label" })
+                    <div class="input-group date">
+                        @Html.TextBoxFor(m => m.HoraInicio, new { @class = "form-control", data_bind = "datetimepicker: horaInicio, datetimepickerOptions: { locale: 'es', format: 'HH:mm' }" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.LabelFor(m => m.HoraFin, new { @class = "control-label" })
+                    <div class="input-group date">
+                        @Html.TextBoxFor(m => m.HoraFin, new { @class = "form-control", data_bind = "datetimepicker: horaFin, datetimepickerOptions: { locale: 'es', format: 'HH:mm' }" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Observaciones, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextAreaFor(m => m.Observaciones, 5, 1, new { @class = "form-control", data_bind = "value: observaciones" })
+                            @Html.ValidationMessageFor(m => m.Observaciones, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardar">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        var apiUrl = '@Url.Action("Index", "Cargues", new { Area = "" })';
+    </script>
+<script src="~/Features/Cargues/ModificarRegistrarTiemposViewModel.js"></script>
+}

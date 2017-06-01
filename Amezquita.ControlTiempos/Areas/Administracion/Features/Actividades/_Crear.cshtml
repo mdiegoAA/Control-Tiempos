@@ -1,0 +1,49 @@
+﻿@using Amezquita.ControlTiempos.Areas.Administracion.Features.Actividades
+@model Crear.Command
+<button class="btn btn-sm btn-primary" data-bind="click:crear">Crear</button>
+<div class="modal fade" id="actividad-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Registrar Actividad</h4>
+            </div>
+            <div class="modal-body">
+                <form id="actividad-form" name="actividad-form" class="form-horizontal">
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Codigo, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Codigo, new { @class = "form-control", data_bind = "value: codigo" })
+                            @Html.ValidationMessageFor(m => m.Codigo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Nombre, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", data_bind = "value: nombre" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.EsGenerica, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.CheckBoxFor(m => m.EsGenerica, new { data_bind = "checked: esGenerica" })
+                            @Html.ValidationMessageFor(m => m.EsGenerica, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.NecesitaAprobacion, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.CheckBoxFor(m => m.NecesitaAprobacion, new { data_bind = "checked: necesitaAprobacion" })
+                            @Html.ValidationMessageFor(m => m.NecesitaAprobacion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardar">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

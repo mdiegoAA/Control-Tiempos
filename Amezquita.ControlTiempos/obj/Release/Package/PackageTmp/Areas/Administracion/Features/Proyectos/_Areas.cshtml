@@ -1,0 +1,58 @@
+﻿<div class="modal fade" id="areas-proyecto-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Áreas del Proyecto</h4>
+            </div>
+            <div class="modal-body">
+                <form id="areas-proyecto-form" name="areas-proyecto-form" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="AreaId">Actividad</label>
+                        <div class="controls">
+                            <select class="form-control select2" data-bind="options: areas, optionsText: 'nombre', value: areaProyecto, optionsCaption: 'SELECCIONE UN ÁREA'" data-val="true" data-val-required="El área es obligatoria" id="AreaId" name="AreaId"></select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="AreaId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Horas">Horas</label>
+                        <div class="controls">
+                            <input class="form-control" data-bind="value: areaProyectoHoras" data-val="true" data-val-required="Las horas área es obligatoria" id="Horas" name="Horas" />
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Horas" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button type="button" class="btn btn-sm btn-primary" data-bind="click: agregarAreaProyecto">Agregar [+]</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="control-group">
+                        <h4>Áreas</h4>
+                        <table class="table table-bordered table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Área</th>
+                                <th>Horas</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach: areasProyecto">
+                            <tr>
+                                <td><span data-bind="text: areaNombre"> </span></td>
+                                <td><span data-bind="text: horas"> </span></td>
+                                <td><a href="#" data-bind="click: $parent.eliminarAreaProyecto">Eliminar</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardarAreasProyecto">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

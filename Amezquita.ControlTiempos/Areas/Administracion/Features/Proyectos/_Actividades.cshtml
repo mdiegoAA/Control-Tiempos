@@ -1,0 +1,41 @@
+﻿<div class="modal fade" id="actividades-proyecto-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Actividades del Proyecto</h4>
+            </div>
+            <div class="modal-body">
+                <form id="actividades-proyecto-form" name="actividades-proyecto-form" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="ActividadId">Actividad</label>
+                        <div class="controls">
+                            <select class="form-control select2" data-bind="options: actividades, optionsText: 'nombre', value: actividadProyecto, optionsCaption: 'SELECCIONE UNA ACTIVIDAD'" data-val="true" data-val-required="La actividad es obligatorio" id="ActividadId" name="ActividadId"></select>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="ActividadId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button type="button" class="btn btn-sm btn-primary" data-bind="click: agregarActividadProyecto">Agregar [+]</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="control-group">
+                        <h4>Actividades</h4>
+                        <ul data-bind="foreach: actividadesProyecto">
+                            <li>
+                                <span data-bind="text: nombre"> </span>
+                                <a href="#" data-bind="click: $parent.eliminarActividadProyecto">Eliminar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardarActividadesProyecto">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

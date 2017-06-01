@@ -1,0 +1,18 @@
+﻿@{ ViewBag.Title = "Servicios";}
+
+<div class="panel panel-default">
+    <div class="panel-heading">@ViewBag.Title</div>
+    <div class="panel-body">
+        @Html.Partial("_CrearOEditar")
+        <hr />
+        @Html.Partial("_Listar")
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        var apiUrl = '@Url.Action("Index", "Servicios", new { Area = "Administracion" })';
+    </script>
+    <script src="~/Areas/Administracion/Features/Servicios/ServiciosViewModel.js"></script>
+}

@@ -1,0 +1,100 @@
+﻿@model GuardarUsuarioDTO
+
+<button class="btn btn-sm btn-primary" data-bind="click:crear">Crear</button>
+
+<div class="modal fade" id="usuario-modal" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Registrar Usuario</h4>
+            </div>
+            <div class="modal-body">
+                <form id="usuario-form" name="servicio-form" class="form-horizontal">
+                    @Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", data_bind = "value: userName" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Cedula, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Cedula, new { @class = "form-control", data_bind = "value: cedula" })
+                            @Html.ValidationMessageFor(m => m.Cedula, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.CargoId, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownListForKnockoutJs(m => m.CargoId, new { @class = "form-control select2", data_bind = "options: cargos, optionsText: 'nombre', optionsValue: 'id', value: cargoId, optionsCaption: 'SELECCIONE UN CARGO', select2: {  language: 'es', width: '100%' }" })
+                            @Html.ValidationMessageFor(m => m.CargoId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Nombre, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", data_bind = "value: nombre" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", data_bind = "value: email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.EmailConfirmado, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.CheckBoxFor(m => m.EmailConfirmado, new { data_bind = "checked: emailConfirmado" })
+                            @Html.ValidationMessageFor(m => m.EmailConfirmado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.AccesosFallidos, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.AccesosFallidos, new { @class = "form-control", data_bind = "value: accesosFallidos", data_val_number = "La cantidad de accesos fallidos debe ser un número entero válido." })
+                            @Html.ValidationMessageFor(m => m.AccesosFallidos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Bloqueado, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.CheckBoxFor(m => m.Bloqueado, new { data_bind = "checked: bloqueado" })
+                            @Html.ValidationMessageFor(m => m.Bloqueado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.FechaBloqueo, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.FechaBloqueo, new { @class = "form-control", data_bind = "value: fechaBloqueo" })
+                            @Html.ValidationMessageFor(m => m.FechaBloqueo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.ReglaCargueLimiteHoraFraccion, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.ReglaCargueLimiteHoraFraccion, new { @class = "form-control", data_bind = "value: reglaCargueLimiteHoraFraccion", data_val_number = "El límite hora fracción debe ser un número decimal válido" })
+                            @Html.ValidationMessageFor(m => m.ReglaCargueLimiteHoraFraccion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.ReglaCargueLimiteDias, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.ReglaCargueLimiteDias, new { @class = "form-control", data_bind = "value: reglaCargueLimiteDias", data_val_number = "El límite días debe ser un número entero válido" })
+                            @Html.ValidationMessageFor(m => m.ReglaCargueLimiteDias, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary" data-bind="click: guardar">Realizar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

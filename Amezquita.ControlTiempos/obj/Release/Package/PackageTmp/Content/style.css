@@ -1,0 +1,265 @@
+/*
+Theme Name: Amézquita
+Theme URI: 
+Author: Michael Aramís
+Author URI: 
+Description: built on bootstrap over bootstrap canvas
+Text Domain: amezquita
+*/
+
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone
+{
+    margin: 5px auto 20px 0;
+}
+
+.aligncenter,
+div.aligncenter
+{
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright
+{
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft
+{
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright
+{
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone
+{
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft
+{
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption
+{
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone
+{
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft
+{
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright
+{
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img
+{
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text,
+.gallery-caption
+{
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+.gallery-item img
+{
+    border-width: 1px;
+    margin-bottom: 0;
+}
+
+.wp-post-image
+{
+    margin-bottom: 20px;
+}
+
+.sticky
+{
+}
+
+.bypostauthor
+{
+}
+
+.entry
+{
+    margin-bottom: 20px;
+}
+
+.widget
+{
+    text-align: initial;
+}
+
+.widget ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+#searchsubmit
+{
+    margin: 4px 0;
+}
+
+.comment-list
+{
+    padding: 0;
+}
+
+.comment-list,
+.children:nth-child(n + 1)
+{
+    list-style: none;
+}
+
+@media (max-width: 767px)
+{
+    .comment-list,
+    .children:nth-child(n + 1)
+    {
+        padding: 0;
+    }
+}
+
+.nav > li > a
+{
+    padding: 10px 10px;
+}
+
+#bgUl li
+{
+    background: #d4f4fc;
+    border-bottom: 0px !important;
+    color: #3d4a6b !important;
+    font-size: 12px;
+    line-height: 1.6em;
+    padding: 3px 10px !important;
+}
+
+#bgUl li:nth-child(2n + 0)
+{
+    background: #b4ecfa;
+}
+
+.sidebar-title
+{
+    background: #b4ecfa;
+    font-family: "Open Sans";
+    font-size: 26px;
+    font-weight: 300;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+.border-less table,
+.border-less table td
+{
+    border: none !important;
+    margin-bottom: 0px;
+    text-align: left !important;
+}
+
+span.f-line
+{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 0px;
+}
+
+span.s-line
+{
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 0px;
+}
+
+.colaboradores
+{
+    background: #eef5fa;
+}
+
+.clientes
+{
+    background: #cce6ff;
+}
+
+.clientes
+span.s-line
+{
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.wpb_content_element
+{
+    margin-bottom: 10px !important;
+}
+
+.blog-post
+{
+    font-size: 14px;
+}
+
+/* */
+
+.footer-1, .footer-2, .footer-3, .footer-4
+{
+    border-right: dotted 1px rgba(255, 255, 255, .4);
+    font-size: 10px;
+    line-height: 1.4em;
+    margin-bottom: 20px;
+    min-height: 90px;
+    padding: 5px;
+}
+
+.side-block tr td:first-child
+{
+    width: 55px !important;
+}
+
+span.s-line
+{
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 0px;
+}

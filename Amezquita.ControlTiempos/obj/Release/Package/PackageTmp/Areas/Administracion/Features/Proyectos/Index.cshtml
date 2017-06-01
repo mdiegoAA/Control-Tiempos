@@ -1,0 +1,21 @@
+﻿@{ ViewBag.Title = "Proyectos";}
+<div class="panel panel-default">
+    <div class="panel-heading">@ViewBag.Title</div>
+    <div class="panel-body">
+        @Html.Partial("_CrearOEditar")
+        @Html.Partial("_Servicios")
+        @Html.Partial("_Actividades")
+        @Html.Partial("_GrupoDeTrabajo")
+        @Html.Partial("_Areas")
+        <hr />
+        @Html.Partial("_Listar")
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        var apiUrl = '@Url.Action("Index", "Proyectos", new { Area = "Administracion" })';
+        var clienteId = '@ViewBag.ClienteId';
+    </script>
+    <script src="~/Areas/Administracion/Features/Proyectos/ProyectosViewModel.js"></script>
+}
